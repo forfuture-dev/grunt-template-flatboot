@@ -1,0 +1,6 @@
+{
+  "bootstrapCss": "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css",
+  "bootstrapJs": "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js",
+  "flatuiCss": "../node_modules/flatui/css/flatui.css",
+  "jqueryJs": "https://code.jquery.com/jquery-latest.min.js"
+}

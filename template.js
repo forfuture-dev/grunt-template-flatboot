@@ -68,16 +68,19 @@ exports.template = function(grunt, init, done) {
     props.dependencies = filter(unwantedCss, props.dependencies);
     props.devDependencies = {
       "grunt": "latest",
-      "nodemon": "latest",
       "grunt-contrib-clean": "latest",
+      "grunt-contrib-coffee": "latest",
+      "grunt-contrib-copy": "latest",
+      "grunt-contrib-cssmin": "latest",
       "grunt-contrib-jade": "latest",
       "grunt-contrib-jshint": "latest",
+      "grunt-nodemon": "latest",
       "grunt-contrib-sass": "latest",
       "grunt-contrib-uglify": "latest",
       "grunt-contrib-watch": "latest"
     };
     props.private = true;
-    init.writePackageJSON("package.json",props); 
+    init.writePackageJSON("package.json", props);
     done();
   });
 };

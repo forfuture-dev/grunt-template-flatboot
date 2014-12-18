@@ -5,7 +5,7 @@
 
 > For your **Grunt** workflow
 
-Time is **$** and we do NOT throw it away...getting started with  a new
+Time is **$** and we do NOT throw it away... getting started with a new
 website project.
 
 With [grunt-init][grunt-init], initialize a static website project
@@ -13,12 +13,14 @@ utilizing:
 
   * Languages
     * [Coffeescript][coffee]
+    * [HTML][html]
     * [Jade][jade]
     * [Javascript][javascript]
     * [Sass][sass]
     * [Stylus][stylus]
 
   * Resources
+    * [Angular][angular]
     * [Bootstrap][bootstrap]
     * [flatUI][flatUI]
     * [bootflat][bootflat]
@@ -107,11 +109,13 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [production]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/production
 [usage]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/specifics
 
+[angular]:https://angularjs.org
 [bootflat]:http://bootflat.github.io
 [bootstrap]:https://getbootstrap.com
 [coffee]:http://coffeescript.org
 [flatUI]:http://designmodo.com/flat-free
 [grunt-init]:https://gruntjs.com
+[html]:http://en.wikipedia.org/wiki/HTML
 [jade]:https://jade-lang.com
 [javascript]:https://developer.mozilla.org/en/docs/Web/JavaScript
 [jQuery]:http://code.jquery.com

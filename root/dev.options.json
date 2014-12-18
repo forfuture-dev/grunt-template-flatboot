@@ -1,4 +1,5 @@
 {
+  "angularJs": "../node_modules/angular/angular.js",
   "bootflatCss": "../node_modules/bootflat/css/bootflat.min.css",
   "bootstrapCss": "../node_modules/bootstrap/dist/css/bootstrap.min.css",
   "bootstrapJs": "../node_modules/bootstrap/dist/js/bootstrap.min.js",

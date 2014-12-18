@@ -4,11 +4,10 @@ module.exports = function(grunt) {
     clean: {
       dist: {
         src: ["dist"]
-      }
-    },
-    cleanRaw: {
-      dist: {
-        src: ["!dist/js/*.min.js", "!dist/css/*.min.css"]
+      },
+      raw: {
+        src: ["dist/css/*.css", "! dist/css/*.min.css",
+          "dist/js/*.js", "! dist/js/*.min.js"]
       }
     },
     coffee: {
@@ -24,26 +23,32 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, src: ["src/html"], dest: "dist/", filter: "isFile"},
-          {expand: true, src: ["src/css"], dest: "dist/css", filter: "isFile"},
-          {expand: true, src: ["src/js"], dest: "dist/js", filter: "isFile"},
-          {expand: true, src: ["src/assets/**"], dest: "dist/assets"}
+          {expand: true, cwd: "src/html", src: ["*"], dest: "dist/", filter: "isFile"},
+          {expand: true, cwd: "src/css", src: ["*"], dest: "dist/css", filter: "isFile"},
+          {expand: true, cwd: "src/js", src: ["*"], dest: "dist/js", filter: "isFile"},
+          {expand: true, cwd: "src/assets", src: ["**"], dest: "dist/assets"}
         ]
       }
     },
-    css: {
+    cssmin: {
       main: {
         options: {
           banner: "/* <%= pkg.author.name %> <<%= pkg.author.email %>> (<%= pkg.author.url %>) */"
         },
-        dynamic_mappings: {
-          expand: true,
-          cwd: "dist/css",
-          src: ["*.css"],
-          dest: "dist/css",
-          ext: ".min.css",
-          extDot: "first"
-        }
+        expand: true,
+        cwd: "dist/css",
+        src: ["*.css"],
+        dest: "dist/css",
+        ext: ".min.css",
+        extDot: "first"
+      }
+    },
+    imagemin: {
+      dist: {
+        expand: true,
+        cwd: "dist/assets/images",
+        src: ["*.{png, jpgm gif}"],
+        dest: "dist/assets/images"
       }
     },
     jade: {
@@ -64,16 +69,16 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ["Gruntfile.js", "dist/js/*.js"]
+      files: ["Gruntfile.js", "dist/js/*"]
     },
     nodemon: {
       server: {
         script: "server.js",
         options: {
-          cwd: "dist/",
           env: {
-            NODE_JS_PORT: "9911"
-          }
+            NODE_JS_PORT: "9999"
+          },
+          watch: ["server.js"]
         }
       }
     },
@@ -113,14 +118,6 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      scripts: {
-        files: ["src/js/*.js"],
-        tasks: ["uglify", "jshint"],
-        options: {
-          spawn: false,
-          livereload: true
-        }
-      },
       jade: {
         files: ["src/jade/*.jade"],
         tasks: ["jade"],
@@ -143,14 +140,14 @@ module.exports = function(grunt) {
       },
       js: {
         files: ["src/js/*.js"],
-        tasks: ["copy"],
+        tasks: ["copy", "jshint"],
         options: {spawn: false}
       },
       coffee: {
         files: ["src/coffee/*.coffee"],
-        tasks: ["coffee"],
+        tasks: ["coffee", "jshint"],
         options: {spawn: false}
-      }
+      },
       html: {
         files: ["src/html/*.html"],
         tasks: ["copy"],
@@ -163,6 +160,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-contrib-imagemin");
   grunt.loadNpmTasks("grunt-contrib-jade");
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-nodemon");
@@ -171,7 +169,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
 
-  grunt.registerTask("default", ["html", "jade", "css", "sass", "stylus", "js",
-    "coffee", "jshint"]);
-  grunt.registerTask("dist", ["default", "cssmin", "uglify", "cleanRaw"]);
+  grunt.registerTask("default", ["copy", "jade", "sass", "stylus", "coffee",
+    "jshint"]);
+  grunt.registerTask("dist", ["default", "cssmin", "uglify", "jshint", "imagemin",
+    "clean:raw"]);
 };

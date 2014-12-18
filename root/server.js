@@ -1,12 +1,24 @@
+/**
+* Serves Static files
+*/
+
+
+// Module imports
 var http = require("http");
 var express = require("express");
 
+
+// Module variables
 var app = express();
 var server = http.Server(app);
-var PORT = parseInt(process.argv[2]) || 9999;
+var port = process.env.NODE_JS_PORT || 9999;
 
+
+// Serving static files
 app.use(express.static(__dirname +"/dist"));
 
-server.listen(PORT, function() {
-  console.log("running on port %d", PORT);
+
+// Starting server
+server.listen(port, function() {
+  console.log("running on port: %d", port);
 });

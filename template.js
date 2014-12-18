@@ -67,6 +67,7 @@ exports.template = function(grunt, init, done) {
     };
     props.dependencies = filter(unwantedCss, props.dependencies);
     props.devDependencies = {
+      "express": "latest",
       "grunt": "latest",
       "grunt-contrib-clean": "latest",
       "grunt-contrib-coffee": "latest",

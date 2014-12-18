@@ -27,42 +27,43 @@ utilizing:
 
 ## installation
 
-We use [npm][npm]:
+We use __make__:
 
 ```bash
-$ npm install grunt-template-flatboot
+$ git clone https://github.com/forfuture-dev/grunt-template-flatboot.git
+$ cd grunt-template-flatboot
+$ make
+$ cd .. && rm -r grunt-template-flatboot
 ```
 
 ## usage
 
 To generate a new project, simply: `grunt-init flatboot`
 
-This will take you through various options you may choose from..
-
-You may then install grunt dependencies with `grunt`.
+You then install grunt dependencies:
 
 ```bash
 $ npm install
 ```
+
+The `Gruntfile.js` created follows a convention rather than require much
+configuration. Read more about this [convention][convention]...
+
 You may now, continually run tasks with `grunt`
 
 Read more about [usage][usage].
-
-
-## specifics
-
-For more specifics that will allow you to harness more power from
-this workflow, head over to [specfics][specifics].
 
 
 ## production
 
 So you are ready for production?
 
-    $ grunt PROD
+```bash
+$ grunt dist
+```
 
 This will create a _dist_ directory, with all the files necessary
-to upload your static files to a server.
+to upload your optimized static files to a server.
 
 Read [production wiki page][production] for more information.
 
@@ -101,9 +102,9 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
+[convention]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/convention
 [repo]:https://github.com/forfuture-dev/grunt-template-flatboot
-[production]://https://github.com/forfuture-dev/grunt-template-flatboot/wiki/production
-[specifics]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/specifics
+[production]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/production
 [usage]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/specifics
 
 [bootflat]:http://bootflat.github.io

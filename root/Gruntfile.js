@@ -47,7 +47,7 @@ module.exports = function(grunt) {
       dist: {
         expand: true,
         cwd: "dist/assets/images",
-        src: ["*.{png, jpgm gif}"],
+        src: ["*.{png, jpg, gif}"],
         dest: "dist/assets/images"
       }
     },
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
         options: {spawn: false}
       },
       sass: {
-        files: ["src/sass/*.sass"],
+        files: ["src/sass/*.sass", "src/sass/*.scss"],
         tasks: ["sass"],
         options: {spawn: false}
       },

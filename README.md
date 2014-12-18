@@ -1,7 +1,7 @@
 
 > WE STILL DEVELOPING. WE STILL PRE-ALPHA
 
-# grunt-template-flatboot
+# grunt-template-esta
 
 > For your **Grunt** workflow
 
@@ -11,7 +11,7 @@ website project.
 With [grunt-init][grunt-init], initialize a static website project
 utilizing:
 
-  * Languages
+  * Languages:
     * [Coffeescript][coffee]
     * [HTML][html]
     * [Jade][jade]
@@ -19,7 +19,7 @@ utilizing:
     * [Sass][sass]
     * [Stylus][stylus]
 
-  * Resources
+  * Resources:
     * [Angular][angular]
     * [Bootstrap][bootstrap]
     * [flatUI][flatUI]
@@ -32,15 +32,14 @@ utilizing:
 We use __make__:
 
 ```bash
-$ git clone https://github.com/forfuture-dev/grunt-template-flatboot.git
-$ cd grunt-template-flatboot
-$ make
+$ git clone https://github.com/forfuture-dev/grunt-template-esta.git
+$ cd grunt-template-esta && make
 $ cd .. && rm -r grunt-template-flatboot
 ```
 
 ## usage
 
-To generate a new project, simply: `grunt-init flatboot`
+To generate a new project, simply: `grunt-init esta`
 
 You then install grunt dependencies:
 
@@ -53,12 +52,10 @@ configuration. Read more about this [convention][convention]...
 
 You may now, continually run tasks with `grunt`
 
-Read more about [usage][usage].
-
 
 ## production
 
-So you are ready for production?
+So you are ready for production?!
 
 ```bash
 $ grunt dist
@@ -66,8 +63,6 @@ $ grunt dist
 
 This will create a _dist_ directory, with all the files necessary
 to upload your optimized static files to a server.
-
-Read [production wiki page][production] for more information.
 
 
 ## contribution
@@ -104,10 +99,8 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-[convention]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/convention
-[repo]:https://github.com/forfuture-dev/grunt-template-flatboot
-[production]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/production
-[usage]:https://github.com/forfuture-dev/grunt-template-flatboot/wiki/specifics
+[convention]:https://github.com/forfuture-dev/grunt-template-esta/wiki/Convention
+[repo]:https://github.com/forfuture-dev/grunt-template-esta
 
 [angular]:https://angularjs.org
 [bootflat]:http://bootflat.github.io

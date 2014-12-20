@@ -34,7 +34,7 @@ We use __make__:
 ```bash
 $ git clone https://github.com/forfuture-dev/grunt-template-esta.git
 $ cd grunt-template-esta && make
-$ cd .. && rm -r grunt-template-flatboot
+$ cd .. && rm -r grunt-template-esta
 ```
 
 ## usage

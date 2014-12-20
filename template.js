@@ -1,6 +1,6 @@
 /**
- * grunt-template-flatboot
- * https://github.com/forfuture-dev/grunt-template-flatboot
+ * grunt-template-esta
+ * https://github.com/forfuture-dev/grunt-template-esta
  *
  * Copyright (c) 2014 Forfuture LLC
  * Licensed under the MIT License
@@ -35,9 +35,7 @@ function filter(_filter, object) {
   return newObj;
 }
 
-exports.description = "A Bootstrap and Flat UI Site Skeleton";
-
-exports.notes = "A Skeleton for a Bootstrap+FlatUI static website will be created. The site will built with jade, sass and javascript.";
+exports.description = "Simple, minimal-configuration grunt template";
 
 exports.after = "Install dependencies with `npm install`";
 

@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       }
     },
     coffee: {
-      dynamic_mappings: {
+      all: {
         expand: true,
         cwd: "src/coffee",
         src: ["*.coffee"],
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      main: {
+      all: {
         files: [
           {expand: true, cwd: "src/html", src: ["*"], dest: "dist/", filter: "isFile"},
           {expand: true, cwd: "src/css", src: ["*"], dest: "dist/css", filter: "isFile"},
@@ -30,8 +30,16 @@ module.exports = function(grunt) {
         ]
       }
     },
+    csslint: {
+      all: {
+        options: {
+          csslintrc: ".csslintrc"
+        },
+        src: ["dist/css/*"]
+      }
+    },
     cssmin: {
-      main: {
+      all: {
         options: {
           banner: "/* <%= pkg.author.name %> <<%= pkg.author.email %>> (<%= pkg.author.url %>) */"
         },
@@ -52,14 +60,14 @@ module.exports = function(grunt) {
       }
     },
     jade: {
-      options: {
-        data: function() {
-          var optionsFile = (process.env.PROD) ? "prod.options.json"
-            : "dev.options.json";
-          return require("./" + optionsFile);
-        }
-      },
-      dynamic_mappings: {
+      all: {
+        options: {
+          data: function() {
+            var optionsFile = (process.env.PROD) ? "prod.options.json"
+              : "dev.options.json";
+            return require("./" + optionsFile);
+          }
+        },
         expand: true,
         cwd: "src/jade",
         src: ["*.jade"],
@@ -69,7 +77,12 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ["Gruntfile.js", "dist/js/*"]
+      all: {
+        options: {
+          jshintrc: ".jshintrc"
+        },
+        src: ["Gruntfile.js", "dist/js/*"]
+      }
     },
     nodemon: {
       server: {
@@ -83,7 +96,7 @@ module.exports = function(grunt) {
       }
     },
     sass: {
-      dynamic_mappings: {
+      all: {
         expand: true,
         cwd: "src/sass",
         src: ["*.sass", "*.scss"],
@@ -93,22 +106,22 @@ module.exports = function(grunt) {
       }
     },
     stylus: {
-        dynamic_mappings: {
-        expand: true,
-        cwd: "src/stylus",
-        src: ["*.styl"],
-        dest: "dist/css",
-        ext: ".css",
-        extDot: "first"
-      }
+      all: {
+      expand: true,
+      cwd: "src/stylus",
+      src: ["*.styl"],
+      dest: "dist/css",
+      ext: ".css",
+      extDot: "first"
+    }
     },
     uglify: {
-      options: {
-        compress: true,
-        mangle: true,
-        banner: "/* <%= pkg.author.name %> <<%= pkg.author.email %>> (<%= pkg.author.url %>) */"
-      },
-      dynamic_mappings: {
+      all: {
+        options: {
+          compress: true,
+          mangle: true,
+          banner: "/* <%= pkg.author.name %> <<%= pkg.author.email %>> (<%= pkg.author.url %>) */"
+        },
         expand: true,
         cwd: "dist/js",
         src: ["*.js"],
@@ -125,17 +138,17 @@ module.exports = function(grunt) {
       },
       sass: {
         files: ["src/sass/*.sass", "src/sass/*.scss"],
-        tasks: ["sass"],
+        tasks: ["sass", "csslint"],
         options: {spawn: false}
       },
       stylus: {
         files: ["src/stylus/*.styl"],
-        tasks: ["stylus"],
+        tasks: ["stylus", "csslint"],
         options: {spawn: false}
       },
       css: {
         files: ["src/css/*.css"],
-        tasks: ["copy"],
+        tasks: ["copy", "csslint"],
         options: {spawn: false}
       },
       js: {
@@ -159,6 +172,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-contrib-csslint");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-imagemin");
   grunt.loadNpmTasks("grunt-contrib-jade");
@@ -169,8 +183,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
 
+  grunt.registerTask("test", ["csslint", "jshint"]);
   grunt.registerTask("default", ["copy", "jade", "sass", "stylus", "coffee",
-    "jshint"]);
-  grunt.registerTask("dist", ["default", "cssmin", "uglify", "jshint", "imagemin",
-    "clean:raw"]);
+    "test"]);
+  grunt.registerTask("dist", ["default", "cssmin", "uglify", "imagemin",
+    "clean:raw", "test"]);
 };

@@ -1,10 +1,13 @@
-INSTALL_DIR = ~/.grunt-init/flatboot
+INSTALL_DIR = ~/.grunt-init/esta
 
 # copying template into ~/.grunt-init
 install:
 	@- rm -r ${INSTALL_DIR}
 	@- mkdir ${INSTALL_DIR}
 	@ rsync --exclude=".git" -qr * ${INSTALL_DIR}
-	@echo "Bootflat installed!"
+	@ echo "Esta installed!"
 
 .PHONY: install
+
+test:
+	@ grunt

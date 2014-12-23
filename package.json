@@ -1,0 +1,27 @@
+{
+  "name": "grunt-template-esta",
+  "description": "a simple, minimal-configuration grunt template",
+  "version": "0.0.0-alpha.1.0",
+  "homepage": "https://github.com/forfuture-dev/grunt-template-esta",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forfuture-dev/grunt-template-esta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/forfuture-dev/grunt-template-esta/issues"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "author": {
+    "name": "Gocho Mugo",
+    "email": "mugo@forfuture.co.ke"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.10.0"
+  }
+}

@@ -7,36 +7,7 @@
  */
 
 
-// Module imports
-var util = require("util");
-var CSS = ["bootflat", "flat-ui"];
-
-
-/*
- * filters out (deletes) properties in an object if substring
- * is found in the key
- * @param {Array|String|RegExp} _filter
- * @param {Object} object
- * @return {Object}
- */
-function filter(_filter, object) {
-  if (util.isArray(_filter)) {
-    var i, result = object;
-    for (i = 0; i < _filter.length; i++) {
-      result = filter(_filter[i], result);
-    }
-    return result;
-  }
-  if (typeof _filter === "string") _filter = new RegExp(_filter);
-  var newObj = {};
-  for (key in object) {
-    if (! _filter.test(key)) newObj[key] = object[key];
-  }
-  return newObj;
-}
-
 exports.description = "Simple, minimal-configuration grunt template";
-
 exports.after = "Install dependencies with `npm install`";
 
 exports.template = function(grunt, init, done) {
@@ -46,30 +17,23 @@ exports.template = function(grunt, init, done) {
     init.prompt("author_email"),
     init.prompt("author_url"),
     init.prompt("repository"),
-    init.prompt("licenses", "BSD"),
-    init.prompt("css", "flat-ui")
+    init.prompt("licenses", "MIT")
   ], function(err, props) {
     var files = init.filesToCopy(props);
-    var unwantedCss = CSS.filter(function(item) {return item !== props.css});
-    files = filter(unwantedCss, files);
-    init.addLicenseFiles(files, props.licenses);
-    init.copyAndProcess(files, props);
-    props.scripts = {
-      start: "./node_modules/nodemon/bin/nodemon.js ./server.js -w dist"
-    };
     props.dependencies = {
+      "angular.js": "latest",
       "bootflat": "latest",
       "bootstrap": "latest",
-      "flat-ui": "latest",
-      "jquery": "latest"
+      "flatUI": "latest",
+      "jQuery": "latest"
     };
-    props.dependencies = filter(unwantedCss, props.dependencies);
     props.devDependencies = {
       "express": "latest",
       "grunt": "latest",
       "grunt-contrib-clean": "latest",
       "grunt-contrib-coffee": "latest",
       "grunt-contrib-copy": "latest",
+      "grunt-contrib-csslint": "latest",
       "grunt-contrib-cssmin": "latest",
       "grunt-contrib-jade": "latest",
       "grunt-contrib-jshint": "latest",
@@ -79,6 +43,8 @@ exports.template = function(grunt, init, done) {
       "grunt-contrib-watch": "latest"
     };
     props.private = true;
+    init.addLicenseFiles(files, props.licenses);
+    init.copyAndProcess(files, props);
     init.writePackageJSON("package.json", props);
     done();
   });

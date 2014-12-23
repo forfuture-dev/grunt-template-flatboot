@@ -1,9 +1,9 @@
 
-> WE STILL DEVELOPING. WE STILL PRE-ALPHA
-
 # grunt-template-esta
 
 > For your **Grunt** workflow
+
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://travis-ci.org/forfuture-dev/node-sequential-ids.svg?branch=master)](https://travis-ci.org/forfuture-dev/node-sequential-ids)
 
 Time is **$** and we do NOT throw it away... getting started with a new
 website project.

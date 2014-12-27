@@ -6,10 +6,10 @@
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://travis-ci.org/forfuture-dev/grunt-template-esta.svg?branch=master)](https://travis-ci.org/forfuture-dev/grunt-template-esta)
 
 Time is **$** and we do NOT throw it away... getting started with a new
-website project.
+ website project.
 
 With [grunt-init][grunt-init], initialize a static website project
-utilizing:
+ utilizing:
 
   * Languages:
     * [Coffeescript][coffee]
@@ -29,26 +29,40 @@ utilizing:
 
 ## installation
 
+### using [grunt-install][grunt-install]:
+
+After installing [grunt-install][grunt-install], you may now install this
+ template as simple as:
+
+```bash
+⇒ grunt-install forfuture-dev/grunt-template-esta esta
+```
+
+
+### manual installation:
+
 We use __make__:
 
 ```bash
-$ git clone https://github.com/forfuture-dev/grunt-template-esta.git
-$ cd grunt-template-esta && make
-$ cd .. && rm -r grunt-template-esta
+⇒ git clone https://github.com/forfuture-dev/grunt-template-esta.git
+⇒ cd grunt-template-esta && make
+⇒ cd .. && rm -r grunt-template-esta
 ```
+
 
 ## usage
 
 To generate a new project, simply: `grunt-init esta`
 
-You then install grunt dependencies:
+You then have to install grunt dependencies:
 
 ```bash
-$ npm install
+⇒ npm install
 ```
 
 The `Gruntfile.js` created follows a convention rather than require much
-configuration. Read more about this [convention][convention]...
+ configuration. Get started by reading more about
+ this [convention][convention]...
 
 You may now, continually run tasks with `grunt`
 
@@ -58,16 +72,11 @@ You may now, continually run tasks with `grunt`
 So you are ready for production?!
 
 ```bash
-$ grunt dist
+⇒ grunt dist
 ```
 
-This will create a _dist_ directory, with all the files necessary
-to upload your optimized static files to a server.
-
-
-## contribution
-
-Source code may be found on [github][repo]
+This will create a `dist/` directory, with optimized files ready for upload
+ to your server.
 
 
 ## license
@@ -108,6 +117,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [coffee]:http://coffeescript.org
 [flatUI]:http://designmodo.com/flat-free
 [grunt-init]:https://gruntjs.com
+[grunt-install]:https://github.com/GochoMugo/grunt-install.git
 [html]:http://en.wikipedia.org/wiki/HTML
 [jade]:https://jade-lang.com
 [javascript]:https://developer.mozilla.org/en/docs/Web/JavaScript

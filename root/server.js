@@ -15,6 +15,7 @@ var port = process.env.NODE_JS_PORT || 9999;
 
 
 // Serving static files
+app.use("/node_modules", express.static(__dirname + "/node_modules"));
 app.use(express.static(__dirname +"/dist"));
 
 

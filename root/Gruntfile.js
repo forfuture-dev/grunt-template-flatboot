@@ -102,7 +102,8 @@ module.exports = function(grunt) {
         src: ["*.sass", "*.scss"],
         dest: "dist/css",
         ext: ".css",
-        extDot: "first"
+        extDot: "first",
+        options: {sourcemap: "none"}
       }
     },
     stylus: {

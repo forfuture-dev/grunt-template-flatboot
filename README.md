@@ -3,7 +3,7 @@
 
 > For your **Grunt** workflow
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://travis-ci.org/forfuture-dev/grunt-template-esta.svg?branch=master)](https://travis-ci.org/forfuture-dev/grunt-template-esta)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://travis-ci.org/forfuture-dev/grunt-template-esta.svg?branch=develop)](https://travis-ci.org/forfuture-dev/grunt-template-esta)
 
 Time is **$** and we do NOT throw it away... getting started with a new
  website project.

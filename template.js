@@ -21,11 +21,11 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
     var files = init.filesToCopy(props);
     props.dependencies = {
-      "angular.js": "latest",
+      "angular": "latest",
       "bootflat": "latest",
       "bootstrap": "latest",
-      "flatUI": "latest",
-      "jQuery": "latest"
+      "flat-ui": "latest",
+      "jquery": "latest"
     };
     props.devDependencies = {
       "express": "latest",

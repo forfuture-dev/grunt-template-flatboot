@@ -107,13 +107,13 @@ module.exports = function(grunt) {
     },
     stylus: {
       all: {
-      expand: true,
-      cwd: "src/stylus",
-      src: ["*.styl"],
-      dest: "dist/css",
-      ext: ".css",
-      extDot: "first"
-    }
+        expand: true,
+        cwd: "src/stylus",
+        src: ["*.styl"],
+        dest: "dist/css",
+        ext: ".css",
+        extDot: "first"
+      }
     },
     uglify: {
       all: {

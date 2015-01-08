@@ -35,10 +35,12 @@ exports.template = function(grunt, init, done) {
       "grunt-contrib-copy": "latest",
       "grunt-contrib-csslint": "latest",
       "grunt-contrib-cssmin": "latest",
+      "grunt-contrib-imagemin": "latest",
       "grunt-contrib-jade": "latest",
       "grunt-contrib-jshint": "latest",
       "grunt-nodemon": "latest",
       "grunt-contrib-sass": "latest",
+      "grunt-contrib-stylus": "latest",
       "grunt-contrib-uglify": "latest",
       "grunt-contrib-watch": "latest"
     };
